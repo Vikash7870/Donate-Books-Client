@@ -20,8 +20,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* Private routes for authenticated users */}
-        <Route path="/donate-book" element={<PrivateRoute component={DonateBook} />} />
-        <Route path="/home" element={<PrivateRoute component={Home} />} />
+        <Route path="/donate-book" element={<PrivateRoute><DonateBook /></PrivateRoute>} />
+        <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
       </Routes>
     </Router>
   );
