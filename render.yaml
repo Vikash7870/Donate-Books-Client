@@ -1,0 +1,10 @@
+version: 1
+services:
+  - type: web
+    name: my-react-app
+    env: static
+    buildCommand: npm run build
+    publishDir: build
+    routes:
+      - src: /*
+        dest: /
