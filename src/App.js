@@ -9,15 +9,17 @@ import PrivateRoute from './components/PrivateRoute';
 import { useAuth } from './contexts/AuthContext';
 
 const App = () => {
-  const { currentUser } = useAuth();
+  const { currentUser } = useAuth(); // Get the current user from Auth context
 
   return (
     <Router>
-      <Navbar />
+      <Navbar /> {/* Render the Navbar for all pages */}
       <Routes>
+        {/* Redirect to Home if logged in, otherwise redirect to Login */}
         <Route path="/" element={<Navigate to={currentUser ? "/home" : "/login"} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        {/* Private routes for authenticated users */}
         <Route path="/donate-book" element={<PrivateRoute component={DonateBook} />} />
         <Route path="/home" element={<PrivateRoute component={Home} />} />
       </Routes>
