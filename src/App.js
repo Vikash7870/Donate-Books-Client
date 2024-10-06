@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import DonateBook from './pages/DonateBook';
 import PrivateRoute from './components/PrivateRoute';
 import { useAuth } from './contexts/AuthContext';
+import EditBook from  "./pages/EditBook";
 
 const App = () => {
   const { currentUser } = useAuth(); // Get the current user from Auth context
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         {/* Redirect to Home if logged in, otherwise redirect to Login */}
         <Route path="/" element={<Navigate to={currentUser ? "/home" : "/login"} />} />
+        <Route path="/edit-book/:id" element={<EditBook />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* Private routes for authenticated users */}
